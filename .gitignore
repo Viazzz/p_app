@@ -7,3 +7,4 @@ project/celerybeat-schedule
 *pyc
 venv/
 set.txt
+pswd.txt
