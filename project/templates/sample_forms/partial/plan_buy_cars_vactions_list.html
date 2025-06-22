@@ -1,0 +1,40 @@
+<div class="pt-3">
+  <div class="row">
+    <div class="col">
+      <h1>Форма № 1</h1>
+    </div>
+    <div class="col text-end">
+      <a href="#" class="btn btn-success" role="button" aria-disabled="true">Create new record</a>
+    </div>
+  </div>
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Date</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        {% for obj in object_list %}
+          <tr>
+            <th scope="row">{{ obj.id }}</th>
+            <td>{{ obj.name }}</td>
+            <td>{{ obj.date }}</td>
+            <td>{{ obj.quantity }}</td>
+            <td>
+              <a href="#" class="btn"><i class="bi bi-pencil text-success fs-5"></i></a>
+            </td>
+            <td>
+              <a class="btn"><i class="bi bi-trash3 text-danger fs-5"></i></a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>

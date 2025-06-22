@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+
+
+  <div class="pt-3 px-3">
+    <div class="row">
+      <div class="col">
+        <h1>Приобретение ТС под вакансии</h1>
+      </div>
+      <div class="col text-end">
+        <a href="{% url "sample_forms:plan_buy_car_vactions_form" %}" class="btn btn-success" role="button" aria-disabled="true">Create new record</a>
+      </div>
+    </div>
+    <hr>  
+
+    <table
+      id="table" 
+      data-search="true"
+      data-url="{% url "sample_forms:plan_by_cars_vactions_table_data" %}"
+      data-toggle="table"
+      data-show-toggle="true"
+      data-show-fullscreen="true"
+      data-show-columns="true"
+      data-show-columns-toggle-all="true"
+      data-show-export="true"
+      data-minimum-count-columns="2"
+      data-resizable="true"
+      data-mobile-responsive="true"
+      data-check-on-init="true"
+      data-show-search-clear-button="true"
+      data-show-columns-search="true"
+      
+      >
+      <thead>
+        <tr>
+          <th data-sortable="true" data-halign="center" data-align="center" data-field="type_car_class__car_class">Класс автомобиля</th>
+          <th data-sortable="true" data-halign="center" data-align="center" data-field="budget_owner__budget_owner">Бюджетодержатель</th>
+          <th data-sortable="true" data-halign="center" data-align="center" data-field="company__company">Организация</th>
+          <th data-sortable="true" data-halign="center" data-align="center" data-field="scenario_budget__scenario_budget">Сценарий бюджета</th>
+          <th data-sortable="true" data-halign="center" data-align="center" data-field="type_budget__type_budget">Принадлежность бюджета</th>
+          <th data-sortable="true" data-halign="center" data-align="center" data-field="company_sh__company_sh">Организация ШР</th>
+          <th data-sortable="true" data-halign="center" data-align="center" data-field="department_sh__department_sh">Департамент ШР</th>
+          <th data-sortable="true" data-halign="center" data-align="center" data-field="grade__grade">Грейд</th>
+          <th data-sortable="true" data-halign="center" data-align="center" data-field="group_sh__group_sh">Группа ШР</th>
+          <th data-sortable="true" data-halign="center" data-align="center" data-field="otdel_sh__otdel_sh">Подразделение ШР</th>
+          <th data-sortable="true" data-halign="center" data-align="center" data-field="post__post">Должность</th>
+          <th data-sortable="true" data-halign="center" data-align="center" data-field="period">Период</th>
+          <th data-sortable="true" data-halign="center" data-align="center" data-field="free_cars">Количество свободных автомобилей</th>
+          <th data-sortable="true" data-halign="center" data-align="center" data-field="vacations">Количество вакансий</th>
+          <th data-sortable="true" data-halign="center" data-align="center" data-field="count_vacancy_buy">Стоимость приобретенных авто</th>
+          <th data-halign="center" 
+              data-align="center" 
+              data-field="id"
+              data-show-columns="true"
+              data-formatter="operateFormatter"
+              data-events="operateEvents"
+          >Редактировать</th>
+          {% comment %} <th data-field="">Удалить</th> {% endcomment %}
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div> 
+{% endblock %}
+
+{% block javascript %}
+<script>
+  const $table = $('#table')
+
+  window.operateFormatter = () => [
+    '<a class="btn edit"><i class="bi bi-pencil text-success fs-5"></i></a> ',
+    '<a class="btn delete"><i class="bi bi-trash3 text-danger fs-5"></i></a>',
+  ].join('')
+
+  window.operateEvents = {
+    'click .edit': (e, value, row) => {
+      pk = row.id
+      window.location.assign("/plan_by_cars_vactions_edit" + `/${pk}`);
+    },
+    'click .delete': (e, value, row) => {
+      pk = row.id
+      window.location.assign("/plan_by_cars_vactions_delete" + `/${pk}`);
+    },
+  }
+</script>
+{% endblock  %}

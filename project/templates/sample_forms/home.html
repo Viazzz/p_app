@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="container">
+    <div class="row pt-5">
+      <div class="col">
+        <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
+          <img src="{% static 'media/images/cars.jpeg' %}" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Приобретение ТС под вакансии</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+            <a href="{% url "sample_forms:plan_buy_car_vactions_table" %}" class="btn btn-primary">Перейти</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

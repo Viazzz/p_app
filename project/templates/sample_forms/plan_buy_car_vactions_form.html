@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+  First form
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="pt-3">
+      <h1 class="pb-3 text-center">Приобретение ТС под вакансии</h1>
+      {% crispy form %}
+    </div>
+  </div>
+{% endblock %}

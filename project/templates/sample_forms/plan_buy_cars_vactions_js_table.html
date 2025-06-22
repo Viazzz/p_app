@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="pt-3 px-3">
+      <div class="row">
+        <div class="col">
+          <h1>Приобретение ТС под вакансии</h1>
+        </div>
+        <div class="col text-end">
+          <a href="{% url 'sample_forms:plan_buy_car_vactions_form' %}" class="btn btn-success" role="button" aria-disabled="true">Create new record</a>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col">
+          <table id="table" class="display compact stripe hover nowrap">
+            <thead>
+              <tr>
+                <th class="dt-control" data-priority="1">Класс автомобиля</th>
+                <th data-priority="1">Бюджетодержатель</th>
+                <th data-priority="1">Организация</th>
+                <th>Сценарий бюджета</th>
+                <th>Принадлежность бюджета</th>
+                <th>Организация ШР</th>
+                <th>Департамент ШР</th>
+                <th>Грейд</th>
+                <th>Группа ШР</th>
+                <th>Подразделение ШР</th>
+                <th>Должность</th>
+                <th data-priority="2">Период</th>
+                <th data-priority="2">Количество свободных автомобилей</th>
+                <th data-priority="2">Количество вакансий</th>
+                <th data-priority="2">Стоимость приобретенных авто</th>
+                <th data-priority="2">Редактировать</th>
+                <th data-priority="2">Удалить</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'js/table.js' %}"></script>
+{% endblock %}
